@@ -18,15 +18,30 @@ module.exports = {
         ]
       },
       {
-        test: /\.less$/,
-        use: [{
-          loader: 'style-loader' // creates style nodes from JS strings
-        }, {
-          loader: 'css-loader?modules=true&camelCase=true' // translates CSS into CommonJS
-        }, {
-          loader: 'less-loader' // compiles Less to CSS
-        }]
-      }
+       test: /\.s[ac]ss$/i,
+       use: [
+         // Creates `style` nodes from JS strings
+         'style-loader',
+         // Translates CSS into CommonJS
+         'css-loader',
+         // Compiles Sass to CSS
+         'sass-loader',
+       ],
+     },
+     {
+      test: /\.css$/i,
+      use: [
+        'css-loader',
+      ],
+    },
+    {
+      test: /\.(woff|woff2|eot|ttf|svg)$/,
+      loader: 'url-loader?limit=100000'
+    },
+    {
+      test: /\.json$/,
+      loader: 'json-loader'
+    }
     ]
   },
   plugins: [

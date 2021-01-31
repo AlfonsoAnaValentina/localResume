@@ -1,19 +1,29 @@
 import React, { Component } from "react";
-
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import ReactDOM from "react-dom";
 import Input from "../presentational/Input.jsx";
 import Accordion from '../presentational/Accordion.jsx';
+import Button from '@material-ui/core/Button';
+import data from '../data/experience';
+
 class FormContainer extends Component {
   constructor() {
     super();
+    this.state = {
+      seo_title: ""
+    };
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
   }
   render() {
+    const { seo_title } = this.state;
+    console.log(data);
     return (
-      <form>
+      <form id="experience-form">
+      <Button variant="contained" color="primary">
+        Hello World
+      </Button>
         <h3>Experience</h3>
         <Accordion>
           <div label='Spark Digital'>
@@ -69,3 +79,6 @@ class FormContainer extends Component {
   }
 }
 export default FormContainer;
+
+const wrapper = document.getElementById("experience-form");
+wrapper ? ReactDOM.render(<FormContainer />, wrapper) : false;

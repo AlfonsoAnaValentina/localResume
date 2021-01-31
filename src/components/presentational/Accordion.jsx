@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import style from './style.less';
+import './styles.scss';
 
 import AccodionElement from './AccordionElement.jsx';
 
@@ -39,7 +39,7 @@ class Accordion extends Component {
     } = this;
 
     return (
-      <div className={style.childrenContainer}>
+      <div className="childrenContainer">
         {children.map((child, i) => (
           <AccodionElement
             key={`child-${i}`}

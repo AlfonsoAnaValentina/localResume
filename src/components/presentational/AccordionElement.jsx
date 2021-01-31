@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare, faMinusSquare } from '@fortawesome/free-solid-svg-icons';
-import style from './style.less';
+import './styles.scss';
 
 class AccordionSection extends Component {
   static propTypes = {
@@ -25,18 +25,18 @@ class AccordionSection extends Component {
 
     return (
       <div
-        className={style.childContainer}
+        className="childContainer"
       >
-        <div className={style.childTitle} onClick={onClick}>
+        <div className="childTitle" onClick={onClick}>
           {label}
-          <div className={style.childTitleIcon}>
+          <div className="childTitleIcon">
             {!isOpen && <FontAwesomeIcon icon={faPlusSquare} />}
             {isOpen && <FontAwesomeIcon icon={faMinusSquare} />}
           </div>
         </div>
         {isOpen && (
           <div
-            className={style.childBody}
+            className="childBody"
           >
             {this.props.children}
           </div>
